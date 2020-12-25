@@ -6,8 +6,8 @@
 
 ### 购买链接：
 
-- [京东](https://item.jd.com/12774589.html)
-- [当当](http://product.dangdang.com/29174575.html)
+- [京东](https://item.jd.com/12774589.html)（据说元旦有满100-50的活动，可以等元旦再下手）
+- [当当](http://product.dangdang.com/29174575.html)（还在备货中）
 
 ### 代码索引
 
