@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>xsec traffic</title>
+    <link rel="stylesheet" href="/css/css.css">
+</head>
+<body>
+<p>
+    <a href="/">Evil connection info</a> || <a href="/http/">Evil http requests</a> || <a href="/dns/">Evil dns
+    </a>
+</p>
+<h2>Evil Request info</h2>
+<table class="bordered" align="left">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Time</th>
+        <th>Sensor IP</th>
+        <th>Host</th>
+        <th>Client</th>
+        <th>Url</th>
+        <th>method</th>
+        <th>ReqParameters</th>
+
+    </tr>
+    </thead>
+    {{range .info }}
+        <tr>
+            <td>{{ .Id}}</td>
+            <td>{{ .Time.Format "2006-01-02 15:04:05" }}</td>
+            <td>{{ .SensorIp }}</td>
+            <td>{{ .Data.Host }}({{ .Data.Ip }})</td>
+            <td>{{ .Data.Client }}</td>
+            <td>{{ .Data.URL }}</td>
+            <td>{{ .Data.Method}}</td>
+            <td>
+                <pre>{{ .Data.ReqParameters}}</pre>
+            </td>
+
+        </tr>
+    {{end}}
+</table>
+</body>
+</html>

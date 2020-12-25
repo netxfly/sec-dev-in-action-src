@@ -1,0 +1,33 @@
+policy:
+  - id: 0
+    whiteips:
+      - 10.10.10.200
+      - 10.76.10.200
+    whiteports:
+      - "22"
+      - "8000"
+      - "443"
+      - "27498"
+    whiteprocess: []
+    whitedomain: []
+service:
+  - id: 100
+    servicename: ssh
+    localport: 8022
+    backendhost: 10.211.55.3
+    backendport: 8022
+  - id: 101
+    servicename: redis
+    localport: 6379
+    backendhost: 10.211.55.3
+    backendport: 6379
+  - id: 102
+    servicename: mysql
+    localport: 3306
+    backendhost: 10.211.55.3
+    backendport: 3306
+  - id: 103
+    servicename: web
+    localport: 80
+    backendhost: 10.211.55.3
+    backendport: 8080

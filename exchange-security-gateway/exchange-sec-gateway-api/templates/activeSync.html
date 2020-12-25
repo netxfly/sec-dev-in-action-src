@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+  <title data-i18n="doc_title">邮箱激活系统</title>
+  <link rel="stylesheet" href="/static/css/common.css">
+  <link rel="icon" href="/static/favicon.ico">
+  <script src="/static/js/jquery/1.8.1/jquery.min.js"></script>
+  <script src="/static/js/jquery.i18n/1.0.4/jquery.i18n.js"></script>
+  <script src="/static/js/jquery.i18n/1.0.4/jquery.i18n.messagestore.js"></script>
+  <script src="/static/i18n/i18n.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <p class="dear_user" data-i18n="[html]dear_user">亲爱的<span class="username"></span></p>
+    <p data-i18n="[html]new_device">您的邮箱 <span class='email'></span>正在一台新的设备（<span class='device'></span>）上登录，详情如下
+    </p>
+    <ul class="device_list"></ul>
+    <p class="outlook_tips" data-i18n="outlook_tips">您使用的是outlook客户端，用户名和密码会被保存到第三方微软公司的服务器中，存在安全风险，推荐使用手机自带的邮件客户端</p>
+    <p data-i18n="[html]change_pwd">如果这不是您本人操作，您的邮箱密码可能已经泄露，请立即修改密码并拒绝该请求</p>
+    <div class="btn btn_ok allow_btn" data-i18n="allow">允许</div>
+    <div class="btn btn_no reject_btn" data-i18n="reject">拒绝</div>
+    <div class="modal ok_modal">
+      <div class="modal_mask"></div>
+      <div class="modal_box">
+        <div class="modal_body" data-i18n="[html]allow_confirm_tips">确定后，将同步您的邮箱到该设备，如需禁用该设备，请登录xxx进行操作</div>
+        <div class="modal_footer">
+          <div class="modal_btn_no modal_btn" data-i18n="cancel">取消</div>
+          <div class="modal_btn_ok modal_btn" data-i18n="ok">确定</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal no_modal">
+      <div class="modal_mask"></div>
+      <div class="modal_box">
+        <div class="modal_body" data-i18n="[html]reject_manage_account">拒绝后，将无法同步您的邮箱到该设备。如需重新激活该设备，请登录xxx进行操作</div>
+        <div class="modal_footer">
+          <div class="modal_btn_no modal_btn" data-i18n="cancel">取消</div>
+          <div class="modal_btn_ok modal_btn" data-i18n="reject">拒绝</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  $(function() {
+    var data = {
+      email: '{{.Name}}',
+      device: '{{.DeviceType}}',
+      deviceInfo: [{
+        name: $.i18n('device_model'),
+        value: '{{.DeviceType}}'
+      }, {
+        name: $.i18n('device_id'),
+        value: '{{.DeviceId}}'
+      }, {
+      name: $.i18n('IMEI'),
+      value: '{{.Imei}}'
+    },{
+      name: $.i18n('phone_number'),
+      value: '{{.PhoneNumber}}'
+    }]
+    };
+    $('.username').text(data.name);
+    $('.email').text(data.email);
+    $('.device').text(data.device);
+    if (data.device == 'Outlook') {
+      $('.outlook_tips').show();
+    }
+    var deviceListHtml = [];
+    for (var i = data.deviceInfo.length - 1; i >= 0; i--) {
+      var li = '<li>' + data.deviceInfo[i].name + ' : ' + data.deviceInfo[i].value + '</li>';
+      deviceListHtml.push(li);
+    }
+    deviceListHtml = deviceListHtml.join('');
+    $('.device_list').html(deviceListHtml);
+    $('.allow_btn').on('click', function() {
+      $('.ok_modal').addClass('visible');
+    });
+    $('.reject_btn').on('click', function() {
+      $('.no_modal').addClass('visible');
+    });
+    $('.ok_modal .modal_btn_ok').on('click', function() {
+      $.ajax({
+          url: '/a/activedevice',
+          type: 'POST',
+          dataType: 'json',
+          timeout: 10000,
+          data: {
+            c: '{{.Code}}'
+          }
+        })
+        .success(function() {
+          location.reload();
+        });
+    });
+    $('.no_modal .modal_btn_ok').on('click', function() {
+      $.ajax({
+          url: '/a/ignoredevice',
+          type: 'POST',
+          dataType: 'json',
+          timeout: 10000,
+          data: {
+            c: '{{.Code}}'
+          }
+        })
+        .success(function() {
+          location.reload();
+        });
+    });
+    $('.modal_btn_no,.modal_mask').on('click', function() {
+      $('.modal').removeClass('visible');
+    });
+  });
+  </script>
+</body>
+
+</html>

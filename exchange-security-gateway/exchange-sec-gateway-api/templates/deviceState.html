@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title data-i18n="doc_title">邮箱激活系统</title>
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="icon" href="/static/favicon.ico">
+    <script src="/static/js/jquery/1.8.1/jquery.min.js"></script>
+    <script src="/static/js/jquery.i18n/1.0.4/jquery.i18n.js"></script>
+    <script src="/static/js/jquery.i18n/1.0.4/jquery.i18n.messagestore.js"></script>
+    <script src="/static/i18n/i18n.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <dl class="state tac">
+        <dt><img alt="state_logo"></dt>
+        <dd></dd>
+    </dl>
+    <ul class="device_list gray"></ul>
+    <div class="caution">
+        <div class="line"></div>
+        <div class="tac"><span class="txt" data-i18n="caution">温馨提示</span></div>
+        <p class="active_tips tips" data-i18n="[html]auth_to_mis_manage">已授权设备请登录到xxx中进行管理
+        </p>
+        <div class="reject_tips">
+            <p class="tips" data-i18n="[html]to_mis_change_pwd">如果该设备不是您的设备，您的密码可能已经泄漏，请立即修改密码</p>
+            <p class="tips" data-i18n="[html]reject_to_mis_manage">已拒绝设备请登录到xxx进行管理
+            </p>
+        </div>
+        <div class="exceed_tips">
+            <p class="tips" data-i18n="[html]devices_exceeds_the_limit">已经激活的设备数超出了10台的限制，请登录到xxx中删除不再使用的设备。
+            </p>
+        </div>
+        <div class="more_tips">
+            <div class="tips">
+                <p class="current"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('.active_tips, .reject_tips, .exceed_tips, .more_tips, .device_list').hide();
+        var deviceInfo = [{
+            name: $.i18n('device_model'),
+            value: '{{.DeviceType}}'
+        }, {
+            name: $.i18n('device_id'),
+            value: '{{.DeviceId}}'
+        }, {
+            name: $.i18n('IMEI'),
+            value: '{{.Imei}}'
+        }, {
+            name: $.i18n('phone_number'),
+            value: '{{.PhoneNumber}}'
+        }
+        ];
+        var secTips = []
+        var res = {
+            STATE_ACTIVED: {
+                title: $.i18n('device_actived'),
+                img: '/static/imgs/actived.png',
+            },
+            STATE_REJECTED: {
+                title: $.i18n('device_rejected'),
+                img: '/static/imgs/refused.png'
+            },
+            STATE_EXCEED: {
+                title: $.i18n('device_exceed'),
+                img: '/static/imgs/refused.png'
+            },
+            STATE_NOTFOUND: {
+                title: $.i18n('page_not_found'),
+                img: '/static/imgs/refused.png'
+            },
+            STATE_INVALID: {
+                title: $.i18n('link_invalid'),
+                img: '/static/imgs/refused.png'
+            }
+        };
+        var state = '{{.ActiveStatus}}';
+        var data = res[state];
+        $('.state img').attr({
+            src: data.img
+        });
+        $('.state dd').text(data.title);
+        var deviceListHtml = [];
+        for (var i = 0; i < deviceInfo.length; i++) {
+            var li = '<li>' + deviceInfo[i].name + ' : ' + deviceInfo[i].value + '</li>';
+            deviceListHtml.push(li);
+        }
+        deviceListHtml = deviceListHtml.join('');
+        $('.device_list').html(deviceListHtml);
+        switch (state) {
+            case 'STATE_ACTIVED':
+                $('.active_tips,.device_list').show();
+                break;
+            case 'STATE_REJECTED':
+                $('.reject_tips,.device_list').show();
+                break;
+            case 'STATE_EXCEED':
+                $('.exceed_tips').show();
+                break;
+            case 'STATE_INVALID':
+            case 'STATE_NOTFOUND':
+                $('.more_tips').show();
+                break;
+        }
+        var tipsIndex = 0,
+            timeInterval = 2000;
+        $('.tips .current').text(secTips[tipsIndex]);
+        var nextTip = function () {
+            if (tipsIndex == secTips.length - 1) {
+                tipsIndex = 0;
+            } else {
+                tipsIndex++;
+            }
+            $('.tips .current').text(secTips[tipsIndex]);
+        }
+        var lastTip = function () {
+            if (tipsIndex == 0) {
+                tipsIndex = secTips.length - 1;
+            } else {
+                tipsIndex--;
+            }
+            $('.tips .current').text(secTips[tipsIndex]);
+        }
+        setInterval(nextTip, timeInterval);
+        $('.pre').on('click', lastTip);
+        $('.next').on('click', nextTip);
+    })
+</script>
+</body>
+
+</html>

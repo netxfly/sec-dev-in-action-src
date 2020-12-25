@@ -1,0 +1,51 @@
+server:
+  listen_ip: 0.0.0.0
+  listen_port: 443
+  timeout: 30s
+  idle_timeout: 30s
+  tls_context:
+    certificate_path: certs/server.crt
+    private_key_path: certs/server.key
+
+upstreams:
+  - name: xsec1
+    connect_timeout: 5s
+    url: http://127.0.0.1:8081
+  - name: xsec2
+    connect_timeout: 5s
+    url: http://127.0.0.1:8082
+
+routes:
+  - host: p.xsec.io
+    rules:
+      - request.ip.network("10.211.55.0/24")
+      - request.email == "xsec888@gmail.com"
+    http:
+      paths:
+        - path: /
+          upstream: xsec1
+          authentication: true
+
+  - host: blog.xsec.io
+    rules:
+      - request.ip == "10.211.55.3"
+      - request.email == "xsec888@gmail.com"
+    http:
+      paths:
+        - path: /blog/
+          upstream: xsec1
+          authentication: true
+
+identity:
+  provider: google
+  client_id: 738990988842-t1spl7avj5efq0djm72jlm05kds2qcqg.apps.googleusercontent.com
+  client_secret: L955qBAOflsJikNb3pUVYO7L
+  oauth2:
+    auth_url: https://accounts.google.com/o/oauth2/auth
+    token_url: https://oauth2.googleapis.com/token
+    profile_url:
+    state_secret: sec-proxy
+
+jwt:
+  secret: jwt-token-xsec.io
+  expires: 10h

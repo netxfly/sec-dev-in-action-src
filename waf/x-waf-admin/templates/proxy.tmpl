@@ -1,0 +1,27 @@
+upstream proxy_{{.site.SiteName}} { {{range .site.BackendAddr}}
+        server {{.}} max_fails=3  fail_timeout=20s;
+        {{end}} }
+
+server  {
+        listen       {{.site.Port}};
+        ssl          {{.site.Ssl}};
+        server_name  {{.site.SiteName}};
+        client_max_body_size 100m;
+        charset utf-8;
+        access_log      /var/log/nginx/{{.site.SiteName}}-access.log;
+        error_log       /var/log/nginx/{{.site.SiteName}}-debug.log {{.site.DebugLevel}};
+        
+        location ~* ^/ {
+            set $target proxy_;
+            proxy_pass_header Server;
+            proxy_set_header Host $http_host;
+            proxy_redirect off;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Scheme $scheme;
+            # proxy_pass $scheme://$target;
+            proxy_pass $scheme://${target}{{.site.SiteName}};
+            }
+
+            error_page  404              /index.html;
+            error_page   500 502 503 504  /index.html;
+        }

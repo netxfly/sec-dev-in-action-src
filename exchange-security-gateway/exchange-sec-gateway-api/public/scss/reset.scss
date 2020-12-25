@@ -1,0 +1,44 @@
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  a,
+  a:hover {
+    text-decoration: none;
+    color: #09f;
+  }
+
+  body {
+    font-size: 14px;
+    font-family: arial, "Hiragino Sans GB", "Microsoft YaHei", "微軟正黑體", "儷黑 Pro", sans-serif;
+    color: #000;
+    background-color: #fff;
+  }
+
+  .tac {
+    text-align: center;
+  }
+
+  .fl {
+    float: left;
+  }
+
+  .fr {
+    float: right
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .clearfix {
+    &:before,
+    &:after {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+  }
