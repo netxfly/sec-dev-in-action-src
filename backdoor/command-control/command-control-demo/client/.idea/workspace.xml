@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cc7c0468-e6f1-4aeb-a116-b6548d270425" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../.idea/thriftCompiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/agent.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/c_c.db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/c_c.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/cli/console.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cli/console.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/cli/display.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cli/display.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/cli/shell.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cli/shell.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/routers/routers.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/routers/routers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../command-control-final/client/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../command-control-final/client/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../command-control-final/client/util/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../command-control-final/client/util/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../command-control-final/server/cli/console.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../command-control-final/server/cli/console.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../command-control-final/server/cli/display.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../command-control-final/server/cli/display.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../command-control-final/server/cli/shell.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../command-control-final/server/cli/shell.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../command-control-final/server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../command-control-final/server/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../command-control-final/server/routers/routers.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../command-control-final/server/routers/routers.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1Wk5zyPgIH1YLwgSQSZDaAwsUUV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/models" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2648" y="408" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1580744700630">
+      <screen x="1680" y="23" width="2560" height="1417" />
+    </state>
+    <state x="2648" y="408" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1680.23.2560.1417/0.23.1680.969@1680.23.2560.1417" timestamp="1580744700630" />
+    <state x="2364" y="165" key="SettingsEditor" timestamp="1580745072906">
+      <screen x="1680" y="23" width="2560" height="1417" />
+    </state>
+    <state x="2364" y="165" key="SettingsEditor/1680.23.2560.1417/0.23.1680.969@1680.23.2560.1417" timestamp="1580745072906" />
+  </component>
+</project>
