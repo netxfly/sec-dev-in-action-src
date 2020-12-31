@@ -12,7 +12,7 @@
 ### 代码索引
 
 * [第2章 扫描器](./scanner)
-    * [单线程的TCP Connect扫描器](./scanner/cp-connect-scanner-demo)
+    * [单线程的TCP Connect扫描器](./scanner/tcp-connect-scanner-demo)
     * [支持并发的tcp connect扫描器1](./scanner/tcp-connect-scanner1/)
     * [支持并发的tcp connect扫描器2](./scanner/tcp-connect-scanner2/)
     * [单线程的TCP半连接扫描器](./scanner/tcp-syn-scan-demo/)
