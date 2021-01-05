@@ -32,7 +32,6 @@
     * [解析数据包的Layers类型](./sniffer/decode_layers/)
     * [具有密码监听功能的嗅探器](./sniffer/sniff_password/)
     * [arp欺骗数据包构造](./sniffer/send_arp/)
-    * [arp欺骗数据包构造](./sniffer/send_arp/)
     * [支持arp欺骗的嗅探器demo](./sniffer/arp_sniff_demo/)
     * [go语言版的webspy](./sniffer/webspy/)
 * [第5章 恶意流量分析系统](./traffic-analysis)
