@@ -42,7 +42,7 @@ func RunTask(tasks []map[string]int) {
 	// 每次创建len(tasks)个goroutine，每个goroutine只处理一个ip:port对的检测
 	for _, task := range tasks {
 		for ip, port := range task {
-			go func(string, int) {
+			go func(ip string, port int) {
 				err := SaveResult(Connect(ip, port))
 				_ = err
 				wg.Done()
